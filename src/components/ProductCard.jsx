@@ -1,0 +1,39 @@
+import React from 'react';
+
+function ProductCard({ product, onClick }) {
+  const isLowStock = product?.stock !== undefined && Number(product.stock) < 5;
+
+  return (
+    <div 
+      className={`product-card ${isLowStock ? 'low-stock' : ''}`} 
+      onClick={onClick}
+      style={{
+        background: '#1e1e1e',
+        border: '1px solid #2e2e2e',
+        borderRadius: '14px',
+        padding: '18px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '14px',
+        color: '#fff',
+        cursor: 'pointer',
+        transition: 'transform 0.2s, border-color 0.2s'
+      }}
+    >
+      <div className="card-image-wrapper" style={{ position: 'relative', width: '100%', height: '180px', background: '#ffffff', borderRadius: '10px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        {isLowStock && (
+          <span style={{ position: 'absolute', top: '10px', right: '10px', background: '#dc2626', color: '#fff', fontSize: '10px', fontWeight: 'bold', padding: '4px 8px', borderRadius: '4px', zIndex: 2 }}>
+            LOW STOCK
+          </span>
+        )}
+        <img src={product.image} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '10px' }} />
+      </div>
+      <div className="card-info">
+        <h3 style={{ fontSize: '1rem', margin: '0 0 6px 0', color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{product.name}</h3>
+        <p className="price" style={{ color: '#facc15', fontWeight: 'bold', fontSize: '1.05rem', margin: 0 }}>₱{product.price ? Number(product.price).toLocaleString() : 0}</p>
+      </div>
+    </div>
+  );
+}
+
+export default ProductCard;
