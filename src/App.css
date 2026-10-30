@@ -62,7 +62,7 @@ html, body, #root {
   aside {
     margin: 0 12px 20px 12px !important;
     padding: 20px !important;
-    flex-direction: column-reverse;
+    flex-direction: column !important;
     gap: 20px;
     text-align: center;
   }
@@ -96,6 +96,29 @@ html, body, #root {
   .list-container div[style*="gridTemplateColumns"] {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px !important;
+  }
+
+
+  .modal-detail-box {
+    width: 95% !important;
+    padding: 18px !important;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-detail-grid {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 12px !important;
+  }
+
+  .modal-img-container {
+    width: 100% !important;
+    height: 180px !important;
+  }
+
+  .modal-detail-info {
+    width: 100% !important;
   }
 }
 
